@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--    <Button-->
+    <!--        android:id="@+id/addItemBtn"-->
+    <!--        android:layout_width="64dp"-->
+    <!--        android:layout_height="32dp"-->
+    <!--        android:background="@android:color/background_dark"-->
+    <!--        android:onClick="addItem"-->
+    <!--        android:text="Add Item"-->
+    <!--        android:textColor="@android:color/white"-->
+    <!--        tools:layout_editor_absoluteX="311dp"-->
+    <!--        tools:layout_editor_absoluteY="16dp" />-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <FrameLayout
+        android:id="@+id/fragment_holder"
+        android:layout_width="386dp"
+        android:layout_height="246dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testImage"
+        app:layout_constraintVertical_bias="0.9">
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/addItemTxt"
+        android:layout_width="224dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Add Notes and Images"
+        android:inputType="textMultiLine"
+        android:onClick="textbox"
+        app:layout_constraintBottom_toBottomOf="@+id/testImage"
+        app:layout_constraintEnd_toStartOf="@+id/addItemBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/testImage"
+        app:layout_constraintTop_toTopOf="@+id/testImage" />
+
+    <Button
+        android:id="@+id/delBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="88dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@android:color/background_dark"
+        android:onClick="del"
+        android:text="Delete"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="376dp"
+        android:layout_height="259dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/delBtn"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/delBtn"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_holder">
+
+        <ListView
+            android:id="@+id/viewList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+
+            android:background="@drawable/listviewborder"
+            android:longClickable="true"
+            android:padding="8sp">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/testImage"
+        android:layout_width="62dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/addItemTxt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/addItemBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="addItem"
+        app:layout_constraintBottom_toBottomOf="@+id/addItemTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/addItemTxt"
+        app:layout_constraintTop_toTopOf="@+id/addItemTxt"
+        app:srcCompat="@drawable/ic_shortcut_send" />
+
+    <ImageView
+        android:id="@+id/gallaryBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="92dp"
+
+        android:onClick="gallaryImage"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cameraBtn"
+        app:layout_constraintTop_toTopOf="@+id/cameraBtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_add_photo_alternate" />
+
+    <ImageView
+        android:id="@+id/cameraBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="cameraImage"
+        app:layout_constraintEnd_toStartOf="@+id/gallaryBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addItemTxt"
+        app:srcCompat="@drawable/ic_camera_alt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
